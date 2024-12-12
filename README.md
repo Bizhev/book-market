@@ -1,75 +1,44 @@
-# Nuxt Minimal Starter
+# Developing a Web Application Using Vue 3 and Nuxt 3
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A web application built with **Vue 3** using the **Nuxt 3** framework.
 
-## Setup
+## Application Description
+The application consists of:
+- A **catalog page** with search functionality and a list of items.
 
-Make sure to install dependencies:
+### Data Source
 
-```bash
-# npm
-npm install
+[Google Books API](https://developers.google.com/books)
 
-# pnpm
-pnpm install
+---
 
-# yarn
-yarn install
+## Requirements
 
-# bun
-bun install
-```
+### Core Technologies:
+- **Flexbox/Grid** for layout
+- **SCSS** preprocessor
+- **TypeScript** for data typing (no `any` type allowed)
+- **Vue Composition API** and composables (hooks)
+- **Pinia** for state management
 
-## Development Server
+### Restrictions:
+- No use of UI libraries (e.g., Vuetify, Bootstrap).
 
-Start the development server on `http://localhost:3000`:
+---
 
-```bash
-# npm
-npm run dev
+## Functional Requirements
 
-# pnpm
-pnpm dev
+1. **Deep Search by Item Properties.**
+   - Each item may have properties such as title, author, etc.
+   - When entering text into the search bar, filter the list to display only matching items.
 
-# yarn
-yarn dev
+2. **Change Item Display Format.**
+   - Implement two display formats:
+      - Grid view
+      - Horizontal list view
 
-# bun
-bun run dev
-```
+3. **Pagination.**
+   - Implement any form of pagination.
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+4. **Item Details Page.**
+   - When clicking on an item, navigate to a separate page with detailed information about the selected item.

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $primary: #3498db;
 $secondary: #2ecc71;
 $accent: #f39c12;
@@ -13,8 +15,24 @@ $border-radius: 4px;
 
 :root {
   --m: 0.5rem;
+  --xm: 0.8rem;
   --s: 0.25rem;
   --l: 1rem;
 }
 
+.h1 {
+  font-size: var(--xm);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+// inputs
+$input-border-color: #ddd;
+$input-focus-border-color: #3498db;
+$input-placeholder-color: #aaa;
+$input-background-color: #fff;
+$input-border-radius: 8px;
+$input-padding: 12px 20px;
 
+// buttons
+$light-text: #ffffff;
+$button-hover: rgba(52, 152, 219, 0.8);

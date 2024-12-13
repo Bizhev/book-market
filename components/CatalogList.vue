@@ -4,15 +4,15 @@
         v-for="item in items"
         :key="item.id"
         :item="item"
-        @select="handleSelect"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import CatalogItem from './CatalogItem.vue';
-import {TypeLayout, useCatalogStore} from '@/store/catalog';
+import {useCatalogStore} from '@/store/catalog';
 import {computed} from "vue";
+import {TypeLayout} from "~/store/interface";
 
 const catalogStore = useCatalogStore();
 
@@ -22,9 +22,6 @@ const getLayoutStyle = computed(() => {
     }
 )
 
-const handleSelect = (item: unknown) => {
-  console.log('SELECTED', item);
-};
 </script>
 
 <style scoped>

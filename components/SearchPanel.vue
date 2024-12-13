@@ -23,8 +23,9 @@
 </template>
 <script lang="ts" setup>
 import ToggleButtons from '@/components/buttons/toggleButtons/ToggleButtons.vue'
-import {TypeLayout, useCatalogStore} from "~/store/catalog";
+import {useCatalogStore} from "~/store/catalog";
 import {computed} from "vue";
+import {TypeLayout} from "~/store/interface";
 
 const catalogStore = useCatalogStore();
 
@@ -57,16 +58,43 @@ const totalPages = computed(() => {
 
 </script>
 <style lang="scss" scoped>
+
+.app-input {
+  width: 100%;
+  max-width: 400px;
+  padding: $input-padding;
+  border: 2px solid $input-border-color;
+  border-radius: $input-border-radius;
+  background-color: $input-background-color;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-color: $input-focus-border-color;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+  }
+
+  &::placeholder {
+    color: $input-placeholder-color;
+    font-style: italic;
+  }
+
+  &:hover {
+    border-color: $input-border-color;
+  }
+
+  &:focus-visible {
+    border-color: $input-focus-border-color;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+  }
+}
+
 .app-panel {
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 10px;
-}
-
-.app-input {
-  width: 100%;
-  outline: none;
-  border: none;
 }
 
 .item {

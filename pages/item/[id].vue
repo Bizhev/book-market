@@ -14,7 +14,6 @@ const route = useRoute();
 const catalogStore = useCatalogStore();
 const item = computed(() => {
       console.log(catalogStore)
-      debugger
       return catalogStore.books.find((el) => el.id === route.params.id)
     }
 );

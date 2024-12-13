@@ -1,14 +1,14 @@
 <template>
   <div class="catalog-item">
     <div class="image-container">
-      <img :src="item.imgUrl" :alt="item.title" width="64" />
+      <img :src="item.imgUrl" :alt="item.title" width="64"/>
     </div>
     <div class="info-container">
-      <h3 class="title">{{ item.title }}</h3>
-      <p>Published Date: {{ item.date }}</p>
-      <p>Country: {{ item.country }}</p>
-      <p>Author: {{ item.authors }}</p>
-      <p>ID: {{ item.id }}</p>
+      <h3 class="title" v-html="highlightText(item.title,searchQuery)"></h3>
+      <p>Published Date: <span v-html="highlightText(item.date,searchQuery)"></span></p>
+      <p>Country: <span v-html="highlightText(item.country,searchQuery)"></span></p>
+      <p>Author: <span v-html="highlightText(item.authors,searchQuery)"></span></p>
+      <p>ID: <span v-html="highlightText(item.id,searchQuery)"></span></p>
       <NuxtLink class="read-more" :to="`/item/${item.id}`">Read more</NuxtLink>
     </div>
   </div>
@@ -16,10 +16,19 @@
 
 <script setup lang="ts">
 import type {IBook} from "~/store/interface";
+import {useCatalogStore} from "~/store/catalog";
+
+const catalogStore = useCatalogStore();
 defineProps<{ item: IBook }>();
+const searchQuery = computed(() => catalogStore.searchQuery)
+
+const highlightText = (text: string, targetString: string): string => {
+  return targetString && text.replaceAll(targetString, `<span class='highlight'>${targetString}</span>`) || text
+}
+
 </script>
 
-<style scoped>
+<style lang="scss">
 .catalog-item {
   display: flex;
   flex-direction: column;
@@ -58,7 +67,7 @@ defineProps<{ item: IBook }>();
   display: inline-block;
   padding: 8px 12px;
   background-color: #007bff;
-  color: white;
+  color: $white;
   text-decoration: none;
   border-radius: 5px;
   font-size: 0.9rem;
@@ -67,5 +76,9 @@ defineProps<{ item: IBook }>();
 
 .read-more:hover {
   background-color: #0056b3;
+}
+
+.highlight {
+  background-color: $accent;
 }
 </style>

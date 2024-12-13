@@ -1,8 +1,7 @@
 <template>
   <div>
-    <SearchPanel> </SearchPanel>
-
-    <CatalogList :items="items"/>
+    <SearchPanel />
+    <CatalogList />
   </div>
 </template>
 <script setup lang="ts">
@@ -10,8 +9,6 @@ import { useCatalogStore } from '@/store/catalog';
 import SearchPanel from "~/components/SearchPanel.vue";
 
 const catalogStore = useCatalogStore();
-
-const items = computed(() => catalogStore.items?.length);
 
 onMounted(
     async () => {

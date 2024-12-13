@@ -1,7 +1,8 @@
 <template>
   <div class="catalog-item">
     <h3>{{ item.id }}</h3>
-    <button @click="$emit('select', item)">Read more</button>
+    <NuxtLink :to="`/item/${item.id}`">Read more</NuxtLink>
+
   </div>
 </template>
 

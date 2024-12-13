@@ -10,7 +10,8 @@ import { useCatalogStore } from '@/store/catalog';
 import SearchPanel from "~/components/SearchPanel.vue";
 
 const catalogStore = useCatalogStore();
-const items = computed(() => catalogStore.filteredItems.length);
+
+const items = computed(() => catalogStore.items?.length);
 
 onMounted(
     async () => {

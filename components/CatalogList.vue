@@ -1,7 +1,7 @@
 <template>
-  <div :class="isGrid ? 'grid' : 'list'">
+  <div :class="getLayoutStyle">
     <CatalogItem
-        v-for="item in filteredItems"
+        v-for="item in items"
         :key="item.id"
         :item="item"
         @select="handleSelect"
@@ -11,12 +11,16 @@
 
 <script setup lang="ts">
 import CatalogItem from './CatalogItem.vue';
-import { useCatalogStore } from '@/store/catalog';
+import {TypeLayout, useCatalogStore} from '@/store/catalog';
+import {computed} from "vue";
 
 const catalogStore = useCatalogStore();
-const isGrid = ref(true);
 
-const filteredItems = computed(() => catalogStore.filteredItems);
+const items = computed(() => catalogStore.itemsWithPagination);
+const getLayoutStyle = computed(() => {
+      return catalogStore.activeTypeLayout === TypeLayout.Grid ? 'grid' : 'list'
+    }
+)
 
 const handleSelect = (item: unknown) => {
   console.log('SELECTED', item);
@@ -29,6 +33,7 @@ const handleSelect = (item: unknown) => {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
+
 .list {
   display: flex;
   flex-direction: column;

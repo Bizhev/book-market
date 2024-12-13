@@ -1,5 +1,7 @@
 # Developing a Web Application Using Vue 3 and Nuxt 3
 
+[DEMO](https://bizhev.github.io/book-market/)
+
 A web application built with **Vue 3** using the **Nuxt 3** framework.
 
 ## Application Description

@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false, // Отключить серверный рендеринг
+  target: 'static',
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: ['@pinia/nuxt'],
@@ -16,6 +18,7 @@ export default defineNuxtConfig({
     }
   },
   app: {
+    baseURL: '/book-market/',
     middleware: {
       'manifest-route-rule': { override: true }
     }

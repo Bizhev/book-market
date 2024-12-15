@@ -29,7 +29,6 @@ const emits = defineEmits<{
 
 </script>
 <style lang="scss" scoped>
-@use 'sass:color';
 
 .app-button {
   padding: 12px 24px;

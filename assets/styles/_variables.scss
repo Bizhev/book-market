@@ -1,5 +1,19 @@
 @use 'sass:color';
+/* Общие переменные для сайта */
+$font-family: 'Arial', sans-serif;
 
+
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$text-color: #333;
+$background-color: #fff;
+
+$primary-color-dark: #1a73e8;
+$secondary-color-dark: #495057;
+$text-color-dark: #e1e1e1;
+$background-color-dark: #121212;
+
+//_____________________
 $primary: #3498db;
 $secondary: #2ecc71;
 $accent: #f39c12;

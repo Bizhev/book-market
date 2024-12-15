@@ -1,10 +1,24 @@
-@use 'variables' as *;
 
-html {
-  font-size: $base-font-size;
-  background-color: $background;
-}
-h1 {
-  font-size: 0.6rem;
+
+/* Глобальные стили */
+@use "sass:meta";
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'global';
+
+/* Светлая тема */
+@use 'themes/light';
+
+/* Компоненты */
+@use 'components/button';
+@use 'components/input';
+
+
+body.light-theme {
+  @include meta.load-css('themes/light');
 }
 
+body.dark-theme {
+  @include meta.load-css('themes/dark');
+}

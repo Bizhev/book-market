@@ -4,23 +4,30 @@ export default defineNuxtConfig({
   target: 'static',
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt'],
-  css: [
-    '~/assets/styles/main.scss',  // Подключаем основной файл стилей
-  ],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "~/assets/styles/_variables.scss" as *;'
-        }
-      }
-    }
-  },
   app: {
     baseURL: '/book-market/',
     middleware: {
       'manifest-route-rule': { override: true }
     }
-  }
+  },
+  modules: ['@pinia/nuxt'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+          additionalData: `
+            @use "~/assets/styles/main.scss" as *;
+            @use "~/assets/styles/_variables.scss" as *;
+          `,
+        }
+      }
+    }
+  },
+  // postcss: {
+  //   plugins: {
+  //     'postcss-nested': {},
+  //     'postcss-custom-media': {}
+  //   }
+  // },
 })

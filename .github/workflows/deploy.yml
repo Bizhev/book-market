@@ -26,6 +26,8 @@ jobs:
 
       # Step 4: Site generate
       - name: Generate static site
+        env:
+          VITE_BASE_URL: https://www.googleapis.com/books/v1/
         run: npm run generate
 
       # Step 5: deploy on gh-pages

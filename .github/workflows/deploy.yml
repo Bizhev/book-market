@@ -10,22 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Pre repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      # Step 2: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20' # Версия Node.js
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Step 4: Site generate
       - name: Generate static site
         run: npm run generate
 
+      # Step 5: deploy on gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_branch: gh-pages
+          publish_dir: ./.output
